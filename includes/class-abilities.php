@@ -17,7 +17,7 @@ class Sarai_Analytics_Abilities {
 			array(
 				'label'               => __( 'Get Event Counts', 'sarai-analytics' ),
 				'description'         => __( 'Returns event counts grouped by type for a given number of days.', 'sarai-analytics' ),
-				'category'            => 'analytics',
+				'category'            => 'site',
 				'execute_callback'    => array( $this, 'get_event_counts' ),
 				'permission_callback' => array( $this, 'can_manage_options' ),
 				'input_schema'        => array(
@@ -26,6 +26,7 @@ class Sarai_Analytics_Abilities {
 						'days' => array(
 							'type'        => 'integer',
 							'description' => __( 'Number of days to look back.', 'sarai-analytics' ),
+				'category'            => 'site',
 							'default'     => 7,
 						),
 					),
@@ -48,7 +49,7 @@ class Sarai_Analytics_Abilities {
 			array(
 				'label'               => __( 'Get Top Searches', 'sarai-analytics' ),
 				'description'         => __( 'Returns the most common search queries.', 'sarai-analytics' ),
-				'category'            => 'analytics',
+				'category'            => 'site',
 				'execute_callback'    => array( $this, 'get_top_searches' ),
 				'permission_callback' => array( $this, 'can_manage_options' ),
 				'input_schema'        => array(
@@ -57,6 +58,7 @@ class Sarai_Analytics_Abilities {
 						'limit' => array(
 							'type'        => 'integer',
 							'description' => __( 'Maximum number of results to return.', 'sarai-analytics' ),
+				'category'            => 'site',
 							'default'     => 10,
 						),
 					),
@@ -79,7 +81,7 @@ class Sarai_Analytics_Abilities {
 			array(
 				'label'               => __( 'Get Top Referrers', 'sarai-analytics' ),
 				'description'         => __( 'Returns the most common referrers for a given time period.', 'sarai-analytics' ),
-				'category'            => 'analytics',
+				'category'            => 'site',
 				'execute_callback'    => array( $this, 'get_top_referrers' ),
 				'permission_callback' => array( $this, 'can_manage_options' ),
 				'input_schema'        => array(
@@ -88,11 +90,13 @@ class Sarai_Analytics_Abilities {
 						'limit' => array(
 							'type'        => 'integer',
 							'description' => __( 'Maximum number of results to return.', 'sarai-analytics' ),
+				'category'            => 'site',
 							'default'     => 10,
 						),
 						'days'  => array(
 							'type'        => 'integer',
 							'description' => __( 'Number of days to look back.', 'sarai-analytics' ),
+				'category'            => 'site',
 							'default'     => 30,
 						),
 					),
@@ -115,7 +119,7 @@ class Sarai_Analytics_Abilities {
 			array(
 				'label'               => __( 'Get Recent Events', 'sarai-analytics' ),
 				'description'         => __( 'Returns the most recent analytics events.', 'sarai-analytics' ),
-				'category'            => 'analytics',
+				'category'            => 'site',
 				'execute_callback'    => array( $this, 'get_recent_events' ),
 				'permission_callback' => array( $this, 'can_manage_options' ),
 				'input_schema'        => array(
@@ -124,6 +128,7 @@ class Sarai_Analytics_Abilities {
 						'limit' => array(
 							'type'        => 'integer',
 							'description' => __( 'Maximum number of events to return.', 'sarai-analytics' ),
+				'category'            => 'site',
 							'default'     => 20,
 						),
 					),

@@ -32,8 +32,14 @@ function sarai_analytics_init() {
 	$database = new Sarai_Analytics_Database();
 	new Sarai_Analytics_Tracker( $database );
 	new Sarai_Analytics_Admin( $database );
+	
+	// Register abilities - check if hook already fired
 	$abilities = new Sarai_Analytics_Abilities( $database );
-	add_action( 'wp_abilities_api_init', array( $abilities, 'register_abilities' ) );
+	if ( did_action( 'wp_abilities_api_init' ) ) {
+		$abilities->register_abilities();
+	} else {
+		add_action( 'wp_abilities_api_init', array( $abilities, 'register_abilities' ) );
+	}
 }
 
 add_action( 'plugins_loaded', 'sarai_analytics_init' );
