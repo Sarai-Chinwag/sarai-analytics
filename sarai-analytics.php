@@ -19,6 +19,7 @@ define( 'SARAI_ANALYTICS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 require_once SARAI_ANALYTICS_PLUGIN_PATH . 'includes/class-database.php';
 require_once SARAI_ANALYTICS_PLUGIN_PATH . 'includes/class-tracker.php';
 require_once SARAI_ANALYTICS_PLUGIN_PATH . 'includes/class-admin.php';
+require_once SARAI_ANALYTICS_PLUGIN_PATH . 'includes/class-abilities.php';
 
 function sarai_analytics_activate() {
 	$database = new Sarai_Analytics_Database();
@@ -31,6 +32,8 @@ function sarai_analytics_init() {
 	$database = new Sarai_Analytics_Database();
 	new Sarai_Analytics_Tracker( $database );
 	new Sarai_Analytics_Admin( $database );
+	$abilities = new Sarai_Analytics_Abilities( $database );
+	add_action( 'wp_abilities_api_init', array( $abilities, 'register_abilities' ) );
 }
 
 add_action( 'plugins_loaded', 'sarai_analytics_init' );
