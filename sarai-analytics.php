@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Sarai Analytics
  * Description: Lightweight analytics for custom events on saraichinwag.com.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Sarai
  * License: GPL-2.0+
  * Text Domain: sarai-analytics
@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'SARAI_ANALYTICS_VERSION', '1.1.0' );
+define( 'SARAI_ANALYTICS_VERSION', '1.2.0' );
 define( 'SARAI_ANALYTICS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 define( 'SARAI_ANALYTICS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
