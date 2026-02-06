@@ -92,9 +92,52 @@
     });
   }
 
+  function trackNavClick() {
+    if (!hasEvent('nav_click')) {
+      return;
+    }
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!target) {
+        return;
+      }
+
+      // Find closest anchor element
+      var link = target.closest ? target.closest('a') : null;
+      if (!link) {
+        return;
+      }
+
+      // Check if link is within a navigation area
+      var navSelectors = [
+        '.site-navigation',
+        '#site-navigation',
+        '.main-navigation',
+        'nav'
+      ];
+
+      var isNavLink = false;
+      for (var i = 0; i < navSelectors.length; i++) {
+        if (link.closest(navSelectors[i])) {
+          isNavLink = true;
+          break;
+        }
+      }
+
+      if (isNavLink) {
+        sendEvent('nav_click', {
+          text: (link.textContent || '').trim().substring(0, 100),
+          href: link.href || ''
+        });
+      }
+    });
+  }
+
   trackPageView();
   trackImageMode();
   trackRandomClick();
   trackSmiClick();
   trackSearch();
+  trackNavClick();
 })();

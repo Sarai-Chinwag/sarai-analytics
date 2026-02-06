@@ -11,7 +11,7 @@ class Sarai_Analytics_Tracker {
 
 	public function __construct( Sarai_Analytics_Database $database ) {
 		$this->database       = $database;
-		$this->allowed_events = apply_filters( 'sarai_analytics_allowed_events', array( 'random_click', 'image_mode', 'smi_click', 'search', 'page_view' ) );
+		$this->allowed_events = apply_filters( 'sarai_analytics_allowed_events', sarai_analytics_default_events() );
 		$this->rate_limit     = (int) apply_filters( 'sarai_analytics_rate_limit', 10 );
 
 		add_action( 'rest_api_init', array( $this, 'register_routes' ) );
