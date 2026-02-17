@@ -71,7 +71,7 @@
         return;
       }
 
-      var button = target.closest ? target.closest('.download-hires, [data-sarai-smi]') : null;
+      var button = target.closest ? target.closest('.smi-get-button, .download-hires, [data-sarai-smi]') : null;
       if (button && hasEvent('smi_click')) {
         sendEvent('smi_click', { label: button.textContent || '' });
       }
